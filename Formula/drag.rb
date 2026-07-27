@@ -1,24 +1,26 @@
 class Drag < Formula
   desc "Fast Tempo.io Cloud command-line client"
   homepage "https://github.com/treramey/drag"
-  version "0.8.1"
+  version "0.9.0"
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/treramey/drag/releases/download/v0.8.1/drag-aarch64-apple-darwin.tar.gz"
-      sha256 "ad47bdfe903132e24da1ddbd6821884f99f894ae5830395b7ff4696f5b4f7fe4"
+      url "https://github.com/treramey/drag/releases/download/v0.9.0/drag-aarch64-apple-darwin.tar.gz"
+      sha256 "1b646cc12c6c971c3b1918a5bf96cc728e2045c6a025e59613f17aeac2c2628c"
     else
-      url "https://github.com/treramey/drag/releases/download/v0.8.1/drag-x86_64-apple-darwin.tar.gz"
-      sha256 "a9c892ffc907d20db8ad5aefa76d424ce2b64547fc77551d2d528c22dd4c2fd0"
+      url "https://github.com/treramey/drag/releases/download/v0.9.0/drag-x86_64-apple-darwin.tar.gz"
+      sha256 "608f683cccc585361f90cdc43ffc189df866bee128776d968355493b85bfc6cf"
     end
   end
   on_linux do
-    url "https://github.com/treramey/drag/releases/download/v0.8.1/drag-x86_64-unknown-linux-gnu.tar.gz"
-    sha256 "7f1272dd316ccc97c87b008a6c6fa64793f2b681e646240d39544098ec3ac077"
+    url "https://github.com/treramey/drag/releases/download/v0.9.0/drag-x86_64-unknown-linux-gnu.tar.gz"
+    sha256 "595e9dbf7b3b577be5bd80d254b53ad276d28d4722754584dc8b53d22ca2a69e"
   end
   def install
     bin.install Dir["drag-*/drag"].first => "drag"
+    bin.install Dir["drag-*/drag-companion"].first => "drag-companion"
   end
   test do
     assert_match version.to_s, shell_output("#{bin}/drag --version")
+    assert_match version.to_s, shell_output("#{bin}/drag-companion --version")
   end
 end
