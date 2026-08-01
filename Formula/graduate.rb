@@ -1,19 +1,19 @@
 class Graduate < Formula
   desc "Graduate, a Jira Cloud terminal client"
   homepage "https://github.com/treramey/graduate"
-  version "1.0.0"
+  version "1.1.0"
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/treramey/graduate/releases/download/v1.0.0/graduate-aarch64-apple-darwin.tar.gz"
-      sha256 "fa7c73cb50cb18a682f5c1b8743017f3da6e4f7a389fe1bcad48ce6fb7a0ff08"
+      url "https://github.com/treramey/graduate/releases/download/v1.1.0/graduate-aarch64-apple-darwin.tar.gz"
+      sha256 "59b23c7951d59b81ad151c029a7591e79237ebe43fa7b8ef540df697f37e0ddb"
     else
-      url "https://github.com/treramey/graduate/releases/download/v1.0.0/graduate-x86_64-apple-darwin.tar.gz"
-      sha256 "6e58c4dbb308bb36148d27c6bfaf140875c810f7815ccda1cc4fa29b11faa101"
+      url "https://github.com/treramey/graduate/releases/download/v1.1.0/graduate-x86_64-apple-darwin.tar.gz"
+      sha256 "dd20849cba8c50b7cd4180b51423c7bf199bf1897b15c9c9447c8712d901537d"
     end
   end
   on_linux do
-    url "https://github.com/treramey/graduate/releases/download/v1.0.0/graduate-x86_64-unknown-linux-gnu.tar.gz"
-    sha256 "25a7a1d7e20f10bdc64d0d7c0a500168879759a0da4d3d9dafa6a72da1bc0555"
+    url "https://github.com/treramey/graduate/releases/download/v1.1.0/graduate-x86_64-unknown-linux-gnu.tar.gz"
+    sha256 "810c77db21ec0d2572594d61b51b5871b269a1048977b9cbf54f9f15265dbb0a"
   end
   def install
     bin.install Dir["graduate-*/gd"].first => "gd"
